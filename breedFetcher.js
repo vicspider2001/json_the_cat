@@ -21,5 +21,5 @@ request(url, (error, response, body) => {
   const data = JSON.parse(body);
   data.map((item) => {
     console.log(item.description);
-  })
+  });
 });
