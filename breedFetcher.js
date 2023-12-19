@@ -1,6 +1,7 @@
 const request = require('request');
 
 const query = process.argv.slice(2);
+
 if (!query) {
   console.log('Please provide breed name.');
   process.exit(1);
@@ -19,6 +20,9 @@ request(url, (error, response, body) => {
   }
 
   const data = JSON.parse(body);
+  if(data.length === 0) {
+    console.log(`Breed ${query} was not found. We will make efforts to include more breeds`)
+  }
   data.map((item) => {
     console.log(item.description);
   });
